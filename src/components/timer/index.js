@@ -1,22 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
-import InputName from "../inputName";
 import ProgressBar from "../progressBar";
 import '../../styles/timer.css'
 
 
 export default function Timer({id, minutes, seconds, create, name, handleFinish}) {
 
-  const [[mins, secs], setTime] = useState([minutes, seconds]);
-  
-  const [intervalId, setIntervalId] = useState(null);
+  const [[mins, secs], setTime] = useState([minutes, seconds]);  
   const [start, setStart] = useState(false);
   const countRef = useRef(null);
 
   const tick = () => {
     if (mins === 0 && secs === 0) {
       alert('Tiempo finalizado: ' + name);
-      console.log(id)
       handleFinish(id);
       resetTimer();
       
@@ -45,13 +41,8 @@ export default function Timer({id, minutes, seconds, create, name, handleFinish}
     }
   });
 
-  function handleStart() {
-    setStart(true);
-  }
-
-  function handleStop() {
-    clearInterval(intervalId);
-    setStart(false)
+  function handleButton() {
+    setStart(!start)
   }
 
   return (
@@ -88,9 +79,9 @@ export default function Timer({id, minutes, seconds, create, name, handleFinish}
         <div className="buttons">
           {create?
               null : start ?
-              <Button variant="danger" onClick={handleStop}>Stop</Button>:
+              <Button variant="danger" onClick={handleButton}>Stop</Button>:
               <>
-                <Button variant="success" onClick={handleStart}>Start</Button>{' '}
+                <Button variant="success" onClick={handleButton}>Start</Button>{' '}
                 <Button variant="danger" onClick={resetTimer}>Reset</Button>{' '}
               </>
               
