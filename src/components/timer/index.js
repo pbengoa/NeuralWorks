@@ -4,7 +4,7 @@ import ProgressBar from "../progressBar";
 import '../../styles/timer.css'
 
 
-export default function Timer({id, minutes, seconds, create, name, handleFinish}) {
+export default function Timer({id, minutes, seconds, create, name, task, handleFinish}) {
 
   const [[mins, secs], setTime] = useState([minutes, seconds]);  
   const [start, setStart] = useState(false);
@@ -52,7 +52,7 @@ export default function Timer({id, minutes, seconds, create, name, handleFinish}
         {create ?
           null:
           <>
-            <h2>{name}</h2>
+            <h2>{name}-{task}</h2>
             <Button onClick={() => handleFinish(id)} variant="danger">
               <span aria-hidden="true">&times;</span>
             </Button>

@@ -1,9 +1,9 @@
 import Form from 'react-bootstrap/Form';
 
-export default function InputName({setName}){
+export default function InputName({setInput, phrase}){
   
-  const changeName = (e) => {
-    setName(e.target.value)
+  const changeInput = (e) => {
+    setInput(e.target.value)
   }
 
   const handleSubmit = (event) => {
@@ -14,7 +14,7 @@ export default function InputName({setName}){
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control onChange={changeName} type="text" placeholder="Ingresa nombre" />
+        <Form.Control onChange={changeInput} type="text" placeholder={phrase} />
       </Form.Group>
     </Form>
   );

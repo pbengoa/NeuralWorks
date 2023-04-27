@@ -9,17 +9,21 @@
     align-items: center;
     background-color: rgb(243, 232, 233);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 10px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
+    padding: 10px;
 }
 
 .line {
-    border-top: 1px solid black;
+    border-top: 1px solid transparent;
     padding: 10px;
     margin-top: 20px;
   }
 
-body{
-    background-color: rgb(243, 232, 233);
+
+.timers {
+    margin-bottom: 10px;
 }
+/* .app{
+    background-image: url('../../public/background.jpg');
+} */

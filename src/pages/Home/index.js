@@ -11,11 +11,12 @@ export default function Home() {
   const [name, setName] = useState('');
   const [time, setTime] = useState(25);
   const [timers, setTimers] = useState([])
+  const [task, setTask] = useState('');
 
   const handleAddTimer = (event) => {
     event.preventDefault();
     const newId = timers.length > 0? timers[timers.length - 1].id + 1 : 1;
-    setTimers([...timers, { id: newId, minutes: time, seconds: 0, name: name }]);
+    setTimers([...timers, { id: newId, minutes: time, seconds: 0, name: name, task: task }]);
   };
 
   const handleRemoveTimer = (id) => {
@@ -28,7 +29,7 @@ export default function Home() {
 
 
   return (
-    <div className="body">
+    <div className="app">
       <div className="timer-container">
         <OptionButton time={time} handleTime={handleTime} />
         {
@@ -51,12 +52,13 @@ export default function Home() {
 
         }
        
-        <InputName setName={setName} />
+        <InputName setInput={setName} phrase={"Nombre trabajador"}/>
+        <InputName setInput={setTask} phrase={"Tarea a realizar"}/>
         <Button onClick={handleAddTimer} variant="primary">Add Timer</Button>
 
       </div>
       <div className="line"></div>
-      <div>
+      <div className="timers">
         <ListTimers timers={timers} handleFinish={handleRemoveTimer} />
       </div>
     </div>

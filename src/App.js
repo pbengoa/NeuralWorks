@@ -7,12 +7,15 @@ import Header from "./components/header";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <div className='app'>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+
 
 
 
