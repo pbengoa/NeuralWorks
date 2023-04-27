@@ -49,7 +49,6 @@ export default function Home() {
           <Timer  minutes={15} seconds={0} create={true} />
           :
           null
-
         }
        
         <InputName setInput={setName} phrase={"Nombre trabajador"}/>
